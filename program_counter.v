@@ -3,9 +3,9 @@
 //The PC module takes clk, rst and next address as input and updates the output.
 
 module program_counter (
-    input wire clk,
-    input wire rst,
-    input wire [3:0] next,
+    input clk,
+    input rst,
+    input [3:0] next,
     output reg [3:0] pc
 );
 

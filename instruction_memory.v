@@ -3,8 +3,8 @@
 //Instruction memory module takes instruction address as input and gives the 32 bit instruction at that address as output.
 
 module instruction_memory (
-    input wire [3:0] instruction_addr,
-    output reg [31:0] instruction
+    input [3:0] instruction_addr,
+    output [31:0] instruction
 );
 
 //4 bit address = 16 instructions of 32 bits each
@@ -29,6 +29,6 @@ initial begin
     instruction_mem[15] = ;
 end
 
-always instruction <= instruction_mem[instruction_addr];
+assign instruction = instruction_mem[instruction_addr];
 
 endmodule
