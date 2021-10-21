@@ -1,6 +1,5 @@
-//In MIPS architecture, instruction memory is aligned. So excluding branch instructions, PC would normally be incremented 
+//In MIPS architecture, instruction memory is aligned. Apart from branch/jump instructions, PC is incremented 
 //by 4 bytes as each instruction is 4 bytes long.
-//This module takes the current PC value as input and increments it by 4
 
 module increment_pc(
     input [3:0] pc_current,

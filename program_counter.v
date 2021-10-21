@@ -1,20 +1,19 @@
 //Program Counter
 //The PC holds the address of the current instruction. It is updated after the execution of each instruction.
-//The PC module takes clk, rst and next address as input and updates the output.
 
 module program_counter (
     input clk,
     input rst,
-    input [3:0] next,
-    output reg [3:0] pc
+    input [3:0] pc_next,
+    output reg [3:0] pc_current
 );
 
 always @ (posedge clk or posedge rst)
 begin
     if(rst)
-        pc <= 4'b0;
+        pc_current <= 4'b0;
     else
-        pc <= next;
+        pc_current <= pc_next;
 end
 
 endmodule

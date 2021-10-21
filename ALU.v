@@ -14,6 +14,8 @@ module ALU (
     output zero
 );
 
+assign zero = (ALU_out == 0) ? 1 : 0;
+
 always @ (*)
 begin  
     case (ALU_control)
@@ -22,13 +24,7 @@ begin
         4'b0010 : ALU_out <= operand1 + operand2;
         4'b0110 : ALU_out <= operand1 - operand2;
         default : ALU_out <= operand1;
-    endcase
-
-    if(ALU_out == 0) 
-        zero <= 1;
-    else 
-        zero <= 0;
-        
+    endcase   
 end
 
 endmodule

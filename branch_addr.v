@@ -1,5 +1,4 @@
 //Left shift (2) sign extended immediate value and add to PC+4
-//Inputs are se_immediate and pc_next
 
 module branch_addr (
     input [31:0] se_immediate,

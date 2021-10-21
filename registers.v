@@ -1,8 +1,7 @@
 //General purpose registers
 //MIPS has 32 32-bit registers
-//Only load and store instructions can access memory in MIPS, so all R format instructions have to read and write to registers
-//Inputs are clk, rst, read registers (1&2), write register, register write flag and any data to be written
-//Output is read data (from operand registers) which is sent to ALU for further operations
+//Only load and store instructions can access memory in MIPS,
+//all R format instructions read and write to registers
 
 module registers (
     input clk,
@@ -10,7 +9,7 @@ module registers (
     input [4:0] read_reg1,
     input [4:0] read_reg2,
     input [4:0] write_reg,
-    input write_flag,
+    input reg_write_flag,
     input [31:0] data,
     output reg [31:0] read_data1,
     output reg [31:0] read_data2
@@ -30,7 +29,7 @@ begin
         end
     end
 
-    else if (write_flag)
+    else if (reg_write_flag)
     begin
         regs[write_reg] <= data;
     end

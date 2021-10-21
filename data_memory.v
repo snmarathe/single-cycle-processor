@@ -1,20 +1,20 @@
 //Data memory for load store operations
-//Can read data from a given address or write to it
-//Inputs are clk, rst, memory address, read flag, write flag, data to be written if any
-//Output is data read from memory if any
+//Reads/writes data from/to a given address
 
 module data_memory (
     input clk,
     input rst,
-    input read_flag,
-    input write_flag,
+    input data_read_flag,
+    input data_write_flag,
     input [4:0] data_addr,
     input [31:0] val,
-    output reg [31:0] read_out
+    output [31:0] read_out
 );
 
 reg [31:0] data_mem [31:0];
 integer c;
+
+assign read_out = (data_read_flag) ? data_mem[data_addr] : x;
 
 always @ (posedge clk or posedge rst)
 begin
@@ -30,10 +30,6 @@ begin
     begin
         data_mem[data_addr] <= val;
     end
-
-    else if (read_flag)
-    begin
-        read_out <= data_mem[data_addr];
-    end
+end
 
 endmodule
