@@ -4,9 +4,11 @@
 
 module increment_pc(
     input [3:0] pc_current,
-    output [3:0] pc_next
+    output [31:0] pc_next
 );
 
-assign pc_next = pc_current + 4;
+wire [31:0] pc_32;
+assign pc_32 = {28'b0, pc_current};
+assign pc_next = pc_32 + 4;
 
 endmodule

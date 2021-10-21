@@ -7,7 +7,6 @@ module instruction_memory (
     output [31:0] instruction
 );
 
-//4 bit address = 16 instructions of 32 bits each
 reg [31:0] instruction_mem [15:0];
 
 initial begin
