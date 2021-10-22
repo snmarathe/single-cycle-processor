@@ -4,6 +4,7 @@
 `include "registers.v"
 `include "data_memory.v"
 `include "ALU.v"
+`include "ALU_ctrl.v"
 `include "ALU_operand_mux.v"
 `include "send_to_reg_mux.v"
 `include "sign_extend.v"
