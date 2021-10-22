@@ -1,10 +1,10 @@
 /*
 All flags (in blue in the diagram) are generated based on the opcode field in the 32 bit instruction
 R format    000000
-        add 100000
-        sub 100010
-        and 100100 
-        or  100101
+    add     100000
+    sub     100010
+    and     100100 
+    or      100101
 lw          100011
 sw          101011
 beq         000100
