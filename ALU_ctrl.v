@@ -19,13 +19,18 @@ module ALU_ctrl (
 
 always @ (*)
 begin
-    if(ALU_op == 2'b00){
+    if(ALU_op == 2'b00)
+    begin
         ALU_control <= 4'b0010;
-    }
-    else if(ALU_op == 2'b01){
+    end
+    
+    else if(ALU_op == 2'b01)
+    begin
         ALU_control <= 4'b0110;
-    }
-    else{
+    end
+    
+    else
+    begin
         case(funct)
         begin
             6'b100000: ALU_control <= 4'b0010;
@@ -34,7 +39,7 @@ begin
             6'b100101: ALU_control <= 4'b0010;
             default:   ALU_control <= 4'b0000;
         endcase 
-    }
+    end
 end   
 
 endmodule
