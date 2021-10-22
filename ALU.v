@@ -14,7 +14,7 @@ module ALU (
     output zero
 );
 
-assign zero = (ALU_out == 0) ? 1 : 0;
+assign zero = (ALU_out == 0);
 
 always @ (*)
 begin  
