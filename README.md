@@ -1,4 +1,7 @@
 # single-cycle-processor
+![image](https://user-images.githubusercontent.com/67182099/138482304-23755e53-4f6e-4618-8d9b-a9ba3f987fa4.png)
+
+
 References:
 
 https://student.cs.uwaterloo.ca/~isg/res/mips/opcodes
