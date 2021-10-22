@@ -1,10 +1,10 @@
-//ALU
-// ALU_control[3:0]     operation
-//  0000                  AND
-//  0001                  OR
-//  0010                  add
-//  0110                  sub
-//  0111                  set on less than
+/* ALU_control[3:0]     operation
+    0000                  AND
+    0001                  OR
+    0010                  add
+    0110                  sub
+    0111                  set on less than
+*/
 
 module ALU (
     input [31:0] operand1,
