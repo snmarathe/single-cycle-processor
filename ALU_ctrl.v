@@ -14,30 +14,30 @@ funct       Operation       ALU_control
 module ALU_ctrl (
     input [1:0] ALU_op,
     input [5:0] funct,
-    output reg [3:0] ALU_control
+    output reg [3:0] ALU_control_signal
 );
 
 always @ (*)
 begin
     if(ALU_op == 2'b00)
     begin
-        ALU_control <= 4'b0010;
+        ALU_control_signal <= 4'b0010;
     end
     
     else if(ALU_op == 2'b01)
     begin
-        ALU_control <= 4'b0110;
+        ALU_control_signal <= 4'b0110;
     end
     
     else
     begin
         case(funct)
         begin
-            6'b100000: ALU_control <= 4'b0010;
-            6'b100010: ALU_control <= 4'b0010;
-            6'b100100: ALU_control <= 4'b0010;
-            6'b100101: ALU_control <= 4'b0010;
-            default:   ALU_control <= 4'b0000;
+            6'b100000: ALU_control_signal <= 4'b0010;
+            6'b100010: ALU_control_signal <= 4'b0010;
+            6'b100100: ALU_control_signal <= 4'b0010;
+            6'b100101: ALU_control_signal <= 4'b0010;
+            default:   ALU_control_signal <= 4'b0000;
         endcase 
     end
 end   
