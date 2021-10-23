@@ -4,7 +4,7 @@
 module program_counter (
     input clk,
     input rst,
-    input [31:0] pc_next,
+    input [31:0] next,
     output reg [3:0] pc_current
 );
 
@@ -13,7 +13,7 @@ begin
     if(rst)
         pc_current <= 4'b0;
     else
-        pc_current <= pc_next[5:2];
+        pc_current <= next[5:2];
 end
 
 endmodule
