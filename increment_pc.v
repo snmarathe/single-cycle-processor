@@ -7,7 +7,7 @@ module increment_pc(
 );
 
 wire [31:0] pc_32;
-    assign pc_32 = {28'b0, pc_current};     //zero extend
+assign pc_32 = {26'b0, pc_current, 2'b0};     //zero extend
 assign pc_next = pc_32 + 4;
 
 endmodule

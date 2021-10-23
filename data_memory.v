@@ -6,7 +6,7 @@ module data_memory (
     input rst,
     input data_read_flag,
     input data_write_flag,
-    input [4:0] data_addr,
+    input [31:0] data_addr,
     input [31:0] val,
     output [31:0] read_out
 );
@@ -14,7 +14,7 @@ module data_memory (
 reg [31:0] data_mem [31:0];     //32 32-bit registers
 integer c;
 
-assign read_out = (data_read_flag) ? data_mem[data_addr] : x;   //asynchronous data_read_flag
+assign read_out = (data_read_flag) ? data_mem[data_addr[6:2]] : x;   //asynchronous data_read_flag
 
 always @ (posedge clk or posedge rst)
 begin
@@ -28,10 +28,10 @@ begin
 
     else if (data_write_flag)
     begin
-        data_mem[data_addr] <= val;
+        data_mem[data_addr[6:2]] <= val;
     end
     
-    else data_mem[data_addr] <= data_mem[data_addr];
+    else data_mem[data_addr[6:2]] <= data_mem[data_addr[6:2]];
 end
 
 endmodule
