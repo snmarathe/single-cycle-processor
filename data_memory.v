@@ -14,7 +14,7 @@ module data_memory (
 reg [31:0] data_mem [31:0];     //32 32-bit registers
 integer c;
 
-assign read_out = (data_read_flag) ? data_mem[data_addr[6:2]] : x;   //asynchronous data_read_flag
+    assign read_out = (data_read_flag) ? data_mem[data_addr[6:2]] : 32'bx;   //asynchronous data_read_flag
 
 always @ (posedge clk or posedge rst)
 begin
