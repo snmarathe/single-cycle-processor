@@ -13,6 +13,7 @@ R format        10
 */
 
 module flags (
+    input zero,
     input [31:0] instruction,
     output [1:0] ALU_op,
     output write_reg_mux_select,
@@ -34,7 +35,7 @@ assign data_write_flag = (opcode == 6'b101011);     //sw
 assign data_read_flag = (opcode == 6'b100011);      //lw
 assign ALU_operand_select = (opcode == 6'b101011 || opcode == 6'b100011);    //lw OR sw
 assign send_to_reg_select = (opcode == 6'b100011);      //lw
-assign branch_select = (opcode == 6'b000100);       //beq
+assign branch_select = (opcode == 6'b000100 && zero == 1);       //beq
 assign jump_select = (opcode == 6'b000010);     //j
 assign ALU_op[1] = (opcode == 6'b000000);
 assign ALU_op[0] = (opcode == 6'b000100);       //ALU_op[1:0]

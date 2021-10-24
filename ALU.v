@@ -11,10 +11,8 @@ module ALU (
     input [31:0] operand2,
     input [3:0] ALU_control_signal,
     output reg [31:0] ALU_out,
-    output zero
+    output reg zero
 );
-
-assign zero = (ALU_out == 0);
 
 always @ (*)
 begin  
@@ -24,7 +22,9 @@ begin
         4'b0010 : ALU_out <= operand1 + operand2;
         4'b0110 : ALU_out <= operand1 - operand2;
         default : ALU_out <= operand1;
-    endcase   
+    endcase
+
+    zero <= (ALU_out == 0);   
 end
 
 endmodule

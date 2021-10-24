@@ -20,7 +20,9 @@ always @ (posedge clk or posedge rst)
 begin
     if (rst)
     begin
-        for (c = 0; c < 32; c = c+1)
+        data_mem[0] = {28'b0, 4'b1111};
+        data_mem[1] = {28'b0, 4'b1100};
+        for (c = 2; c < 32; c = c+1)
         begin
             data_mem[c] = 32'b0;
         end
@@ -34,4 +36,5 @@ begin
     else data_mem[data_addr[6:2]] <= data_mem[data_addr[6:2]];
 end
 
+always @ (*) $display("time = %t, data_addr = %b, data_mem[2] = %b",$time,data_addr,data_mem[2]);
 endmodule

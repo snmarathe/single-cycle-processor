@@ -40,4 +40,5 @@ begin
     else regs[write_reg] <= regs[write_reg];
 end
 
+always @ (*) $display("time = %t, regs[0]=%b, regs[1]=%b, regs[2]=%b, regs[3]=%b",$time,regs[0],regs[1],regs[2],regs[3]);
 endmodule

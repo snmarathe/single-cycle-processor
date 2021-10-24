@@ -50,9 +50,9 @@ ALU_ctrl alu_ctrl(ALU_op, instruction[5:0], ALU_control_signal);
 branch_addr branch1(se_immediate, pc_next, branch);
 data_memory DATA_MEM(clk, rst, data_read_flag, data_write_flag, ALU_out, read_data2, read_out);
 increment_pc INC_PC(pc_current, pc_next);
-instruction_memory I_MEMORY(pc_current, instruction);
+instruction_memory I_MEMORY(rst, pc_current, instruction);
 jump_addr jump1(instruction, pc_next, jump);
-flags FLAGS(instruction, ALU_op, write_reg_mux_select, reg_write_flag, data_write_flag, data_read_flag, ALU_operand_select, send_to_reg_select, branch_select, jump_select);
+flags FLAGS(zero, instruction, ALU_op, write_reg_mux_select, reg_write_flag, data_write_flag, data_read_flag, ALU_operand_select, send_to_reg_select, branch_select, jump_select);
 program_counter PC(clk, rst, next, pc_current);
 registers REGS(clk, rst, instruction[25:21], instruction[20:16], write_reg, reg_write_flag, data, read_data1, read_data2);
 sign_extend SE(instruction[15:0], se_immediate);
@@ -63,5 +63,8 @@ mux_32 branch_mux(pc_next, branch, branch_select, out_mux_branch);
 mux_32 jump_mux(out_mux_branch, jump, jump_select, next);
 mux_32 send_to_reg_mux(ALU_out, read_out, send_to_reg_select, data);
 mux_5 write_reg_mux(instruction[20:16], instruction[15:11], write_reg_mux_select, write_reg);
+
+//always @ (*) $display("time = %t, pc_current = %b,next = %b, send_to_reg_select = %b, read_out = %b",$time,pc_current,next,send_to_reg_select,read_out);
+always @ (*) $display("time = %t, zero = %b",$time, zero);
 
 endmodule
