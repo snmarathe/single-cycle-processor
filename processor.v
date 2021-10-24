@@ -55,7 +55,7 @@ jump_addr jump1(instruction, pc_next, jump);
 flags FLAGS(instruction, ALU_op, write_reg_mux_select, reg_write_flag, data_write_flag, data_read_flag, ALU_operand_select, send_to_reg_select, branch_select, jump_select);
 program_counter PC(clk, rst, next, pc_current);
 registers REGS(clk, rst, instruction[25:21], instruction[20:16], write_reg, reg_write_flag, data, read_data1, read_data2);
-sign_extend SE(instruction[15:0]);
+sign_extend SE(instruction[15:0], se_immediate);
 
 //muxes
 mux_32 ALU_operand_mux(read_data2, se_immediate, ALU_operand_select, ALU_mux_out);
