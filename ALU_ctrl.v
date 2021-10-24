@@ -32,7 +32,6 @@ begin
     else
     begin
         case(funct)
-        begin
             6'b100000: ALU_control_signal <= 4'b0010;
             6'b100010: ALU_control_signal <= 4'b0010;
             6'b100100: ALU_control_signal <= 4'b0010;
