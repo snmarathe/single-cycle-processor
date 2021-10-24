@@ -61,7 +61,7 @@ sign_extend SE(instruction[15:0]);
 mux_32 ALU_operand_mux(read_data2, se_immediate, ALU_operand_select, ALU_mux_out);
 mux_32 branch_mux(pc_next, branch, branch_select, out_mux_branch);
 mux_32 jump_mux(out_mux_branch, jump, jump_select, next);
-mux_32 send_to_reg_mux(ALU_out, read_out, send_to_reg_mux, data);
+mux_32 send_to_reg_mux(ALU_out, read_out, send_to_reg_select, data);
 mux_5 write_reg_mux(instruction[20:16], instruction[15:11], write_reg_mux_select, write_reg);
 
 endmodule
