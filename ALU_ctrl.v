@@ -33,10 +33,10 @@ begin
     begin
         case(funct)
             6'b100000: ALU_control_signal <= 4'b0010;
-            6'b100010: ALU_control_signal <= 4'b0010;
-            6'b100100: ALU_control_signal <= 4'b0010;
-            6'b100101: ALU_control_signal <= 4'b0010;
-            default:   ALU_control_signal <= 4'b0000;
+            6'b100010: ALU_control_signal <= 4'b0110;
+            6'b100100: ALU_control_signal <= 4'b0000;
+            6'b100101: ALU_control_signal <= 4'b0001;
+            default:   ALU_control_signal <= 4'b1000;
         endcase 
     end
 end   
