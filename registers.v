@@ -38,6 +38,8 @@ begin
     end
 
     else regs[write_reg] <= regs[write_reg];
+
+    $display("regs[0]=%b, regs[1]=%b, data=%b, write_reg=%b",regs[0],regs[1],data,write_reg);
 end
 
 endmodule

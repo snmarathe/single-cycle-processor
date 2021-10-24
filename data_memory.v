@@ -14,13 +14,14 @@ module data_memory (
 reg [31:0] data_mem [31:0];     //32 32-bit registers
 integer c;
 
-assign read_out = (data_read_flag) ? data_mem[data_addr[6:2]] : x;   //asynchronous data_read_flag
+assign read_out = (data_read_flag) ? data_mem[data_addr[6:2]] : 32'bx;   //asynchronous data_read_flag
 
 always @ (posedge clk or posedge rst)
 begin
     if (rst)
     begin
-        for (c = 0; c < 32; c = c+1)
+        data_mem[0] = {28'b0, 4'b1111};
+        for (c = 1; c < 32; c = c+1)
         begin
             data_mem[c] = 32'b0;
         end
@@ -32,6 +33,7 @@ begin
     end
     
     else data_mem[data_addr[6:2]] <= data_mem[data_addr[6:2]];
+    $display("data_read_flag = %b, data_addr = %b, data_mem[0] = %b",data_read_flag,data_addr,data_mem[0]);
 end
 
 endmodule
