@@ -7,6 +7,6 @@ module jump_addr (
     output [31:0] jump
 );
 
-assign jump = {pc_next[3:0], instruction[25:0], 2'b0};
+assign jump = {pc_next[31:28], instruction[25:0], 2'b0};
 
 endmodule

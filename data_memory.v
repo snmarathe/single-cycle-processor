@@ -14,7 +14,7 @@ module data_memory (
 reg [31:0] data_mem [31:0];     //32 32-bit registers
 integer c;
 
-    assign read_out = (data_read_flag) ? data_mem[data_addr[6:2]] : 32'bx;   //asynchronous data_read_flag
+assign read_out = (data_read_flag) ? data_mem[data_addr[6:2]] : 32'bx;   //asynchronous data_read_flag
 
 always @ (posedge clk or posedge rst)
 begin
@@ -36,5 +36,5 @@ begin
     else data_mem[data_addr[6:2]] <= data_mem[data_addr[6:2]];
 end
 
-always @ (*) $display("time = %t, data_addr = %b, data_mem[2] = %b",$time,data_addr,data_mem[2]);
+always @ (*) $display("time = %t,\tdata_mem[2] = %b",$time,data_mem[2]);
 endmodule

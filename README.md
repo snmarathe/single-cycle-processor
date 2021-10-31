@@ -1,5 +1,5 @@
 # single-cycle-processor
-![image](processor_schematic.jpg)
+![image](processor_schematic.png)
 
 References:<br>
 https://student.cs.uwaterloo.ca/~isg/res/mips/opcodes<br>

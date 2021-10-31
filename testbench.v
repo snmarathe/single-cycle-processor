@@ -1,18 +1,18 @@
-`timescale 1ns/1ps
+`timescale 1ns/1ns
 `include "processor.v"
 
 module testbench();
 reg clk, rst;
 
-always #4 clk = ~clk;
+always #5 clk = ~clk;
 processor dut (clk, rst);
 
 initial
 begin
-	$monitor ("time = %t, clk = %b, rst = %b", $time, clk, rst);
+	$monitor ("time = %t,\tclk = %b, rst = %b", $time, clk, rst);
 	
 	clk = 0; rst = 0; 
     #1 rst = 1; #1 rst = 0;
-	#44 $finish;
+	#110 $finish;
 end
 endmodule

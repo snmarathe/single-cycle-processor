@@ -65,6 +65,6 @@ mux_32 send_to_reg_mux(ALU_out, read_out, send_to_reg_select, data);
 mux_5 write_reg_mux(instruction[20:16], instruction[15:11], write_reg_mux_select, write_reg);
 
 //always @ (*) $display("time = %t, pc_current = %b,next = %b, send_to_reg_select = %b, read_out = %b",$time,pc_current,next,send_to_reg_select,read_out);
-always @ (*) $display("time = %t, zero = %b",$time, zero);
+//always @ (*) $display("time = %t, pc_current = %b, next = %b",$time, pc_current, next);
 
 endmodule
